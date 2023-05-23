@@ -28,7 +28,7 @@
     </parent>
 
     <artifactId>buildenv-jdk17-image</artifactId>
-    <version>1.2.2-SNAPSHOT</version>
+    <version>1.2.2-172</version>
     <packaging>pom</packaging>
 
     <name>openSUSE JDK17 Maven image</name>
