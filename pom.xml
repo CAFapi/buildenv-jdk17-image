@@ -44,7 +44,6 @@
         <dockerHubOrganization>cafapi</dockerHubOrganization>
         <dockerCafImagePrefix>${dockerImagePrefix}${dockerHubOrganization}${dockerOrgSeperator}</dockerCafImagePrefix>
         <dockerProjectVersion>${dockerVersionSeperator}${project.version}</dockerProjectVersion>
-        <DOCKER_HUB_PUBLIC>${dockerHubPublic}</DOCKER_HUB_PUBLIC>
         <projectDockerRegistry>buildenv-jdk17-image-${project.version}.project-registries.local</projectDockerRegistry>
     </properties>
 
@@ -56,13 +55,36 @@
                     <artifactId>docker-versions-maven-plugin</artifactId>
                     <version>1.0.0-SNAPSHOT</version>
                 </plugin>
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>0.34.0</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
             <plugin>
+                <groupId>com.github.cafapi.plugins.docker.versions</groupId>
+                <artifactId>docker-versions-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <imageManagement>
+                        <image>
+                            <repository>${dockerHubPublic}/cafapi/opensuse-jdk17</repository>
+                            <tag>1.5.1</tag>
+                            <digest>sha256:aa76257ea8a12a70916d5b0190201b40f4de7d1c47bb1bb3e3641d4fe7fa86cf</digest>
+                        </image>
+                        <image>
+                            <repository>${dockerHubPublic}/library/maven</repository>
+                            <tag>3.9.3-eclipse-temurin-17</tag>
+                            <digest>sha256:e20347d8605522bacb96bf5ce76b53d3b06a5041f524111451cfabb7a37d97bb</digest>
+                        </image>
+                    </imageManagement>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.34.0</version>
                 <executions>
                     <execution>
                         <id>docker-build</id>
