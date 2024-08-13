@@ -28,7 +28,7 @@
     </parent>
 
     <artifactId>buildenv-jdk17-image</artifactId>
-    <version>1.8.0-SNAPSHOT</version>
+    <version>1.7.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>openSUSE JDK17 Maven image</name>
@@ -71,8 +71,8 @@
                     <imageManagement>
                         <image>
                             <repository>${dockerHubPublic}/cafapi/opensuse-jdk17</repository>
-                            <tag>4.1.0</tag>
-                            <digest>sha256:15c2b6ea9812d6d6eed2b92c155f183f8c2afcead48fd2887141f351c7de5af6</digest>
+                            <tag>4.1.1</tag>
+                            <digest>sha256:9f4c0b514818bca92ae868132998b78c523b9184b0c82519de3d7e02c86c8fd8</digest>
                         </image>
                         <image>
                             <repository>${dockerHubPublic}/library/maven</repository>
